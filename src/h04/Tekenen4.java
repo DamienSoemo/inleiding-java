@@ -39,7 +39,7 @@ public class Tekenen4 extends Applet {
         g.setColor(Color.black);
         g.drawString("80Kg",20, 110);
         g.drawString("100kg",15,90);
-
+        g.drawLine(60,90,60,190);
     }
 
 
