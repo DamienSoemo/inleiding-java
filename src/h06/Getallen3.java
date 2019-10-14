@@ -12,8 +12,9 @@ public class Getallen3 extends Applet {
     public void init() {
         a = 2147483647;
         b = 1;
-        uitkomst =a + b;
+        uitkomst = a + b;
     }
+
 
     public void paint(Graphics g) {
         g.drawString("De uitkomst is: " + uitkomst, 20, 20);

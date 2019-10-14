@@ -5,22 +5,23 @@ import java.applet.*;
 
 public class Variabelen1 extends Applet {
 
-            //declaratie.
-            Color opvulkleur;
-            Color lijnkleur;
-            int breedte;
-            int hoogte;
-            int breedte2;
-            int breedte3;
-            public void init() {
-                //initialisatie.
-                opvulkleur = Color.magenta;
-                lijnkleur = Color.BLACK;
-                breedte = 100;
-                hoogte = 60;
-                breedte2 = 160;
-                breedte3 = 60;
-        }
+    //declaratie.
+    Color opvulkleur;
+    Color lijnkleur;
+    int breedte;
+    int hoogte;
+    int breedte2;
+    int breedte3;
+
+    public void init() {
+        //initialisatie.
+        opvulkleur = Color.magenta;
+        lijnkleur = Color.BLACK;
+        breedte = 100;
+        hoogte = 60;
+        breedte2 = 160;
+        breedte3 = 60;
+    }
 
     public void paint(Graphics g) {
         setBackground(Color.white);

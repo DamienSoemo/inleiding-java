@@ -9,10 +9,6 @@ public class Kntpraktijkopdracht extends Applet {
     TextField tekstvak2;
     Label label;
     double getal;
-    Button knopkeer;
-    Button knopdelen;
-    Button knopmin;
-    Button knopplus;
 
     public void init() {
 

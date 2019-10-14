@@ -21,8 +21,6 @@ public class Knt2 extends Applet {
         schermtekst3 = 0;
         schermtekst4 = 0;
 
-
-
         // mannen
 
         knop = new Button("man");
@@ -49,7 +47,7 @@ public class Knt2 extends Applet {
         knop.addActionListener(kp);
         add(knop);
 
-  
+
     }
 
     public void paint(Graphics g) {
