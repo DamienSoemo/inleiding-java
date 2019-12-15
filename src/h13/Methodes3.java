@@ -5,77 +5,122 @@ import java.applet.*;
 import java.awt.event.*;
 
 public class Methodes3 extends Applet {
-
-    int width;
-    int height;
-    Color color;
-    Button baksteen;
-    Button beton;
+    Button knopBeton;
+    Button knopBak;
+    int counter = 0;
 
     public void init() {
 
-        setSize (600,400);
 
-        baksteen = new Button();
-        baksteen.setLabel("Rode bakstenenmuur");
-        baksteen.addActionListener( new baksteenListener());
-        add(baksteen);
+        setSize(600, 500);
+        knopBeton = new Button("Beton");
+        knopBetonListener kBL = new knopBetonListener();
+        knopBeton.addActionListener(kBL);
+        add(knopBeton);
 
-        beton = new Button();
-        beton.setLabel("Grijze betonnenmuur");
-        beton.addActionListener( new betonListener());
-        add(beton);
+        knopBak = new Button("Baksteen");
+        knopBaksteenListener kBaL = new knopBaksteenListener();
+        knopBak.addActionListener(kBaL);
+        add(knopBak);
 
     }
+
 
     public void paint(Graphics g) {
-
-        tekenmuur(g,width,height,color);
-
-}
-
-    class baksteenListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-
-            width = 100;
-            height = 50;
-            color  = Color.red;
-
-            repaint();
+        if (counter == 1) {
+            Baksteen(g);
         }
+        if (counter == 2) {
+            Beton(g);
+        }
+
+
     }
 
-    class betonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
 
-            width = 100;
-            height = 75;
-            color  = Color.gray;
+    void Beton(Graphics g) {
+        int x, y, width, height;
 
-            repaint();
-        }
-    }
+        y = 60;
+        width = 60;
+        height = 35;
 
-    void tekenmuur (Graphics g,int x1,int y1, Color kleur) {
 
-        int x = 25;
-        int y = 100;
-        int reset = 2;
+        for (int Stenen = 0; Stenen < 4; Stenen++) {
+            x = 60;
+            y += 35;
+            for (int MeerStenen = 0; MeerStenen < 8; MeerStenen++) {
+                g.setColor(Color.gray);
+                g.fillRect(x, y, width, height);
+                g.setColor(Color.white);
+                g.drawRect(x, y, width, height);
 
-        for (int i = 0; i < 9 ; i++) {
+                x += width;
+            }
+            x = 30;
+            y += 35;
+            for (int kolom = 0; kolom < 8; kolom++) {
+                g.setColor(Color.gray);
+                g.fillRect(x, y, width, height);
+                g.setColor(Color.white);
+                g.drawRect(x, y, width, height);
+                x += width;
 
-            x += x1;
-            g.setColor(kleur);
-            g.fillRect(x,y,x1,y1);
-            g.setColor(Color.white);
-            g.drawRect(x,y,x1,y1);
-
-            if ( i == reset){
-                y += y1;
-                reset += 3;
-                x = 25;
 
             }
+        }
+    }
+
+
+    void Baksteen(Graphics g) {
+
+        int x, y, width, height;
+
+        y = 50;
+        width = 50;
+        height = 25;
+
+        for (int Stenen = 0; Stenen < 4; Stenen++) {
+            x = 50;
+            y += 25;
+            for (int MeerStenen = 0; MeerStenen < 8; MeerStenen++) {
+                g.setColor(Color.red);
+                g.fillRect(x, y, width, height);
+                g.setColor(Color.white);
+                g.drawRect(x, y, width, height);
+                x += width;
+
+            }
+
+            x = 25;
+            y += 25;
+            for (int kolom = 0; kolom < 8; kolom++) {
+                g.setColor(Color.red);
+                g.fillRect(x, y, width, height);
+                g.setColor(Color.white);
+                g.drawRect(x, y, width, height);
+                x += width;
+
+            }
+        }
+    }
+
+
+    class knopBetonListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            counter = 2;
+            repaint();
+
+
+        }
+    }
+
+
+    class knopBaksteenListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            counter = 1;
+            repaint();
+
         }
     }
 }
